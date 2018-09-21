@@ -28,7 +28,7 @@ class HomeContainer extends Component {
 
   checkIfNight() {
     let date = new Date()
-    if(date.getHours() > 19){
+    if(date.getHours() >= 19){
       this.setState({nightOrDay: 'night'})
       return ',night'
     } else {
@@ -49,6 +49,7 @@ class HomeContainer extends Component {
         const weather = res.data
         console.log(weather)
         let weatherInfo = weather.weather[0].main
+        let weatherDes = weather.weather[0].description
         this.fetchImages(weatherInfo)
         weatherInfo && this.setState({ success: true })
         this.setState({ weather })
@@ -59,9 +60,8 @@ class HomeContainer extends Component {
       })
   }
 
-  fetchImages = (weather) => {
-    console.log("fetching new image")
-    axios.get('https://api.unsplash.com/search/photos/?page=1&per_page=100&query='+weather','+weather+','+this.checkIfNight()+',sky'+'&client_id=482375f6a898d949d9e813e99559266f763fe08c077918274e13f27b5effae89',
+  fetchImages = (weather, weatherDes) => {
+    axios.get('https://api.unsplash.com/search/photos/?page=1&per_page=100&query='+weather+','+weather+','+this.checkIfNight()+',sky'+'&client_id=482375f6a898d949d9e813e99559266f763fe08c077918274e13f27b5effae89',
       { method: "get",
         crossdomain: true})
       .then(res => {
