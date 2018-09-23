@@ -97,14 +97,13 @@ class HomeContainer extends Component {
   }
 
   render() {
-    let header = (this.state.city) && (this.state.city)[0].toUpperCase() + (this.state.city).substring(1)
+    let header = (this.state.city) && (this.state.city).toUpperCase()
     let temp = (this.state.weather && (this.state.weather.main.temp - 273.15))
     let country = (this.state.weather && this.state.weather.sys.country)
-
     const divider = this.state.city ? true : false
     return (
       <div style={container}>
-        <img src={this.state.image && this.state.image.urls.raw}></img>
+        <img src={this.state.image && this.state.image.urls.raw}/>
         <div className={this.state.nightOrDay} style={mainContent}>
           {this.state.success && <h1>{header}</h1>}
           {(!this.state.success && !this.state.city) && <div>Choose a city</div>}
@@ -113,7 +112,9 @@ class HomeContainer extends Component {
           {(this.state.success) && <div>{Math.round(temp)}°C</div>}
           <div style={flexRow}>
             <MuiThemeProvider>
-              <TextField hintStyle={{color: '#999'}} multiLine={true} style={styles.textInput} textareaStyle={styles.textInputInput}
+              <TextField hintStyle={{color: '#999'}} multiLine={true}
+                style={styles.textInput} textareaStyle={styles.textInputInput}
+                className={'input-field'}
                 hintText="Search for your city" type="text"
                 onChange={this.changeValue} value={this.state.input}/>
               <IconButton onClick={() => this.fetchWeather()}>
@@ -121,6 +122,8 @@ class HomeContainer extends Component {
               </IconButton>
             </MuiThemeProvider>
           </div>
+          {(this.state.success) && <h3>Poems</h3>}
+          {(this.state.success) && <div style={flexRow}><p>noe annet</p><p>noe</p></div>}
         </div>
       </div>
     )

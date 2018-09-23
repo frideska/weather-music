@@ -2,26 +2,34 @@ export const container = {
   display: 'flex',
   flexDirection: 'column',
   fontFamily: '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
-  fontSize: '2.5vh',
   alignItems: 'center',
+  justifyContent: 'center',
   height: '100%'
 }
 export const mainContent = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  margin: '13vh 13vh',
-  padding: '5%',
+  justifyContent: 'center',
+  margin: '12vh 12vh',
+  padding: '3%',
   height: '60%',
   width: '60%',
   color: 'white'
 }
 export const flexRow = {
+  width: '70%',
   display: 'flex',
   flexDirection: 'row',
+  justifyContent: 'space-evenly'
 }
 export const styles = {
+  textInput: {
+    width: '30vw !important',
+    color: 'white'
+  },
   textInputInput: {
-    color: 'white',
+    width: '30vw !important',
+    color: 'white'
   },
 }
