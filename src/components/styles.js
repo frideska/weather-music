@@ -4,7 +4,8 @@ export const container = {
   fontFamily: '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '100%'
+  height: '100%',
+  width: '100%'
 }
 export const mainContent = {
   display: 'flex',
@@ -21,15 +22,15 @@ export const flexRow = {
   width: '70%',
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'space-evenly'
+  justifyContent: 'space-around'
 }
 export const styles = {
   textInput: {
-    width: '30vw !important',
+    width: '100% !important',
     color: 'white'
   },
   textInputInput: {
-    width: '30vw !important',
-    color: 'white'
+    width: '100% !important',
+    color: 'white',
   },
 }
